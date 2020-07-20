@@ -12,6 +12,26 @@ export default class App extends Component {
       currentPage: 0,
     };
   }
+
+  receiveData = () => {
+    axios.get(`https://jsonplaceholder.typicode.com/photos`).then(res => {
+      const data = res.data;
+      const slice = data.slice(
+        this.state.offset,
+        this.state.offset + this.state.perPage
+      );
+      const postData = slice.map(pd => (
+        <React.Fragment>
+          <p>{pd.title}</p>
+          <img src={pd.thumbnailUrl} alt='' />
+        </React.Fragment>
+      ));
+
+      this.setState({
+        pageCount: Math.ceil(data.length / this.state.perPage),
+      });
+    });
+  };
   render() {
     return <div>test</div>;
   }
