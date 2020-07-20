@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
-import ReacrPaginate from 'react-paginae';
+import ReactPaginate from 'react-paginate';
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       offset: 0,
       data: [],
