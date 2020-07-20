@@ -31,6 +31,7 @@ export default class App extends Component {
 
       this.setState({
         pageCount: Math.ceil(data.length / this.state.perPage),
+        postData,
       });
     });
   };
@@ -52,6 +53,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        {this.state.postData}
         <ReactPaginate
           previousLabel={'prev'}
           nextLabel={'next'}
